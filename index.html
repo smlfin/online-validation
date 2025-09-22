@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SML Finance Class Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="v.png" alt="Vanchinad Finance Logo" class="logo">
+        <h1>SML Finance Class Room</h1>
+        <form id="detailsForm">
+            <input type="text" id="name" placeholder="Employee Name" required>
+            <input type="text" id="code" placeholder="Employee Code" required>
+            <input type="text" id="designation" placeholder="Designation" required>
+            <input type="text" id="branch" placeholder="Branch" required>
+            <button type="submit">Start Test</button>
+        </form>
+
+        <div id="testContainer" style="display:none;">
+            <span id="questionCounter"></span>
+            <form id="testForm">
+                </form>
+            <div class="navigation-buttons">
+                <button type="button" id="prevBtn" style="display:none;">Previous</button>
+                <button type="button" id="nextBtn">Next</button>
+            </div>
+        </div>
+
+        <div id="resultsContainer" style="display:none;">
+            <h2>Test Results</h2>
+            <p id="scoreDisplay"></p>
+            <p id="gradeDisplay"></p>
+            <p id="certificateMessage"></p>
+            <button id="downloadCertificateBtn" style="display:none;">Download Certificate</button>
+            <button id="downloadResponseBtn" style="display:none;">Download Responses</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
