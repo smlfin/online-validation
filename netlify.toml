@@ -1,4 +1,6 @@
 [build]
+  command = "npm run build"  # Or "npm install" if you have no build step
+  publish = "/"
   functions = "functions"
 
 [[plugins]]
