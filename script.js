@@ -341,7 +341,7 @@ async function submitTest() {
     document.getElementById('scoreDisplay').textContent = `Your score is: ${score} out of 50`;
     document.getElementById('gradeDisplay').textContent = `Your grade is: ${grade}`;
 
-   if (score >= 0) {
+  if (score >= 0) {
     document.getElementById('downloadCertificateBtn').style.display = 'block';
 
     document.getElementById('downloadCertificateBtn').addEventListener('click', () => {
@@ -352,6 +352,7 @@ async function submitTest() {
             day: 'numeric'
         });
 
+        // Use backticks (`) for the multi-line string
         const certificateContent = `
     <style>
         body { font-family: 'Times New Roman', serif; background: #f0f2f5; margin: 0; padding: 20px; }
@@ -365,7 +366,7 @@ async function submitTest() {
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             margin: auto;
             position: relative;
-            padding-bottom: 120px; /* Added padding to make space for signatures */
+            padding-bottom: 120px;
         }
         .certificate-logo {
             position: absolute;
@@ -399,8 +400,8 @@ async function submitTest() {
         .signatures {
             display: flex;
             justify-content: space-around;
-            position: absolute; /* Changed to absolute positioning */
-            bottom: 40px; /* Aligned to the bottom of the container */
+            position: absolute;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
@@ -447,7 +448,6 @@ async function submitTest() {
 } else {
     document.getElementById('certificateMessage').textContent = 'You did not pass. Please try again.';
 }
-
     document.getElementById('downloadResponseBtn').style.display = 'block';
     document.getElementById('downloadResponseBtn').addEventListener('click', () => {
         const responseData = {
