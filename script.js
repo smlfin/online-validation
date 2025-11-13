@@ -1,7 +1,7 @@
 const questions = [
     {
         question: "Which of the following companies is a Nidhi Company?",
-        options: ["SML Nidhi Finance ", "Vanchinad Finance Nidhi ", "Sangeeth Nidhi", "All of the above"],
+        options: ["SML Nidhi ", "Vanchinad Nidhi ", "Sangeeth Nidhi", "All of the above"],
         answer: "Sangeeth Nidhi"
     },
     {
@@ -16,8 +16,8 @@ const questions = [
     },
     {
         question: "What does a 'put option' in an NCD mean?",
-        options: ["The company has the option to buy back the NCD from the investor before the maturity date.", "The investor has the right to sell back (Redeem/Close) the NCD to the company before the maturity date.", "The company has the right to sell the NCD to another investor.", "The investor must hold the NCD until the maturity date."],
-        answer: "The investor has the right to sell back (Redeem/Close) the NCD to the company before the maturity date."
+        options: ["The company has the option to buy back the NCD from the investor before the maturity date.", "The investor has the right to Redeem/Close the NCD before the maturity date.", "The company has the right to sell the NCD to another investor.", "The investor must hold the NCD until the maturity date."],
+        answer: "The investor has the right to Redeem/Close the NCD before the maturity date."
     },
     {
         question: "What does it mean for an NCD to be 'secured'?",
@@ -31,8 +31,8 @@ const questions = [
     },
     {
         question: "What is the closure remark for SML Finance NCDs?",
-        options: ["Closure allowed after 3 months.", "Closure allowed after 2 years.", "Closure allowed after 1 year.", "No premature closing allowed."],
-        answer: "Closure allowed after 1 year."
+        options: ["Closure allowed after 3 months.", "Closure allowed after 2 years.", "Closure allowed after 1 year with conditions.", "No premature closing allowed."],
+        answer: "Closure allowed after 1 year with conditions."
     },
     {
         question: "Which of the following products from SML Finance Ltd and Vanchinad Finance (P) Ltd does NOT allow premature closing?",
@@ -92,7 +92,7 @@ const questions = [
     {
         question: "For a Sangeeth Nidhi Fixed Deposit with a period of 2 years, what is the yearly interest rate?",
         options: ["9%", "12%", "12.5%", "13%"],
-        answer: "12.5%"
+        answer: "12%"
     },
     {
         question: "Which of the following is a key reason why an investor's money is considered safe with SML and Vanchinad Finance?",
@@ -106,18 +106,18 @@ const questions = [
     },
     {
         question: "What is the penalty for a customer who closes a Vanchinad NCD after 3 years?",
-        options: ["2% interest cut", "1% interest cut", "9% interest cut for the last 6 months", "No cut"],
-        answer: "No cut"
+        options: ["2% interest cut", "1% interest cut", "9% interest cut for the last 6 months", "No penalty if closed on anniversary dates, 9% if closed between anniversary dates"],
+        answer: "No penalty if closed on anniversary dates, 9% if closed between anniversary dates"
     },
     {
         question: "If a customer says, 'I don’t have a Demat account,' which of the following is a valid statement?",
-        options: ["Demat Support is provided by us", "Cutomer can invest through NSDL account", "Customer has to open CDSL account by their own"],
-        answer: "Demat Support is provided by us"
+        options: ["Demat Support is provided by us, Customer can also choose option such as subdebt or FD", "Cutomer can invest through NSDL account", "Customer has to open CDSL account by their own"],
+        answer: "Demat Support is provided by us, Customer can also choose option such as subdebt or FD"
     },
     {
-        question: "What is the yearly interest rate for Sangeeth Nidhi Recurring Deposit (RD)?",
-        options: ["5%", "9%", "12%", "12.5%"],
-        answer: "12%"
+        question: "What is the yearly interest rate for Sangeeth Nidhi Recurring Deposit (RD), for a period of 2 years?",
+        options: ["5%", "9%", "10%", "12.5%"],
+        answer: "10%"
     },
     {
         question: "Which of the following is NOT required for a Sangeeth Nidhi FD/RD?",
@@ -131,8 +131,8 @@ const questions = [
     },
     {
         question: "For Sangeeth Nidhi Recurring Deposits, what is the incentive for an employee?",
-        options: ["5% of first EMI.", ".50% of first EMI.", "1% of the deposit.", "2% PA."],
-        answer: "5% of first EMI."
+        options: ["5% of first EMI & 2 % of first EMI from 2nd year onwards", "5% of first EMI & 10 % of first EMI from 2nd year onwards", "10% of first EMI & 5 % of first EMI from 2nd year onwards", "2% PA."],
+        answer: "10% of first EMI & 5 % of first EMI from 2nd year onwards"
     },
     {
         question: "A customer with an annual interest income of above ₹3,50,000 is a Senior Citizen. Which form should they submit to avoid TDS, and is it accepted?",
@@ -141,8 +141,8 @@ const questions = [
     },
     {
         question: "What is the meaning of redemable ncd?",
-        options: ["Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest", "Redeemable NCDs can be freely sold back to the company at any time before maturity", "Redeemable NCDs mean the investor can withdraw the principal amount in parts whenever needed"],
-        answer: "Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest"
+        options: ["Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest or customers can opt to close after a specific time", "Redeemable NCDs can be freely sold back to the company at any time before maturity", "Redeemable NCDs mean the investor can withdraw the principal amount in parts whenever needed"],
+        answer: "Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest or customers can opt to close after a specific time"
     },
     {
         question: "What are the interest payment modes in SML Finance NCD?",
@@ -151,8 +151,8 @@ const questions = [
     },
     {
         question: "What is the correct statement about a Demat account and investing in SML Finance NCD?",
-        options: ["A Demat account is not required for SML Finance NCD.", "Demat is required, the company can help a customer open a Demat account for free to invest in SML Finance NCD.", "A Demat account is only required for amounts above 15 Lakhs.", "Only Vanchinad NCD requires a Demat account."],
-        answer: "Demat is required, the company can help a customer open a Demat account for free to invest in SML Finance NCD."
+        options: ["A Demat account is not required for SML Finance NCD.", "Demat is required, the company can help a customer open a CDSL Demat account for free to invest in SML Finance NCD.", "A Demat account is only required for amounts above 15 Lakhs.", "Only Vanchinad NCD requires a Demat account."],
+        answer: "Demat is required, the company can help a customer open a CDSL Demat account for free to invest in SML Finance NCD."
     },
     {
         question: "What is a key difference between NCDs and FDs according to the training material?",
