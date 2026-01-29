@@ -1,7 +1,7 @@
 const questions = [
     {
         question: "Which of the following companies is a Nidhi Company?",
-        options: ["SML Nidhi ", "Vanchinad Nidhi ", "Sangeeth Nidhi", "All of the above"],
+        options: ["SML Nidhi Finance ", "Vanchinad Finance Nidhi ", "Sangeeth Nidhi", "All of the above"],
         answer: "Sangeeth Nidhi"
     },
     {
@@ -16,8 +16,8 @@ const questions = [
     },
     {
         question: "What does a 'put option' in an NCD mean?",
-        options: ["The company has the option to buy back the NCD from the investor before the maturity date.", "The investor has the right to Redeem/Close the NCD before the maturity date.", "The company has the right to sell the NCD to another investor.", "The investor must hold the NCD until the maturity date."],
-        answer: "The investor has the right to Redeem/Close the NCD before the maturity date."
+        options: ["The company has the option to buy back the NCD from the investor before the maturity date.", "The investor has the right to sell back (Redeem/Close) the NCD to the company before the maturity date.", "The company has the right to sell the NCD to another investor.", "The investor must hold the NCD until the maturity date."],
+        answer: "The investor has the right to sell back (Redeem/Close) the NCD to the company before the maturity date."
     },
     {
         question: "What does it mean for an NCD to be 'secured'?",
@@ -31,8 +31,8 @@ const questions = [
     },
     {
         question: "What is the closure remark for SML Finance NCDs?",
-        options: ["Closure allowed after 3 months.", "Closure allowed after 2 years.", "Closure allowed after 1 year with conditions.", "No premature closing allowed."],
-        answer: "Closure allowed after 1 year with conditions."
+        options: ["Closure allowed after 3 months.", "Closure allowed after 2 years.", "Closure allowed after 1 year.", "No premature closing allowed."],
+        answer: "Closure allowed after 1 year."
     },
     {
         question: "Which of the following products from SML Finance Ltd and Vanchinad Finance (P) Ltd does NOT allow premature closing?",
@@ -46,8 +46,8 @@ const questions = [
     },
     {
         question: "What is the period for a Doubling Scheme Golden Bond?",
-        options: ["5.5 years", "10 years", "6 years", "5 years"],
-        answer: "6 years"
+        options: ["66 Months", "60 Months", "72 Months", "70 Months"],
+        answer: "70 Months"
     },
     {
         question: "What is the reason given for the high-interest rates offered by the companies?",
@@ -91,8 +91,8 @@ const questions = [
     },
     {
         question: "For a Sangeeth Nidhi Fixed Deposit with a period of 2 years, what is the yearly interest rate?",
-        options: ["9%", "12%", "12.5%", "13%"],
-        answer: "12%"
+        options: ["9%", "12%", "12.5%", "11.50%"],
+        answer: "11.50%"
     },
     {
         question: "Which of the following is a key reason why an investor's money is considered safe with SML and Vanchinad Finance?",
@@ -106,13 +106,13 @@ const questions = [
     },
     {
         question: "What is the penalty for a customer who closes a Vanchinad NCD after 3 years?",
-        options: ["2% interest cut", "1% interest cut", "9% interest cut for the last 6 months", "No penalty if closed on anniversary dates, 9% if closed between anniversary dates"],
-        answer: "No penalty if closed on anniversary dates, 9% if closed between anniversary dates"
+        options: ["2% interest cut", "1% interest cut", "9% interest cut for the last 6 months", "No cut"],
+        answer: "No cut"
     },
     {
         question: "If a customer says, 'I don’t have a Demat account,' which of the following is a valid statement?",
-        options: ["Demat Support is provided by us, Customer can also choose option such as subdebt or FD", "Cutomer can invest through NSDL account", "Customer has to open CDSL account by their own"],
-        answer: "Demat Support is provided by us, Customer can also choose option such as subdebt or FD"
+        options: ["Demat Support is provided by us", "Cutomer can invest through NSDL account", "Customer has to open CDSL account by their own"],
+        answer: "Demat Support is provided by us"
     },
     {
         question: "What is the yearly interest rate for Sangeeth Nidhi Recurring Deposit (RD), for a period of 2 years?",
@@ -132,7 +132,7 @@ const questions = [
     {
         question: "For Sangeeth Nidhi Recurring Deposits, what is the incentive for an employee?",
         options: ["5% of first EMI & 2 % of first EMI from 2nd year onwards", "5% of first EMI & 10 % of first EMI from 2nd year onwards", "10% of first EMI & 5 % of first EMI from 2nd year onwards", "2% PA."],
-        answer: "10% of first EMI & 5 % of first EMI from 2nd year onwards"
+        answer: "10% of first EMI & 5 % of first EMI from 2nd year onwards."
     },
     {
         question: "A customer with an annual interest income of above ₹3,50,000 is a Senior Citizen. Which form should they submit to avoid TDS, and is it accepted?",
@@ -141,8 +141,8 @@ const questions = [
     },
     {
         question: "What is the meaning of redemable ncd?",
-        options: ["Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest or customers can opt to close after a specific time", "Redeemable NCDs can be freely sold back to the company at any time before maturity", "Redeemable NCDs mean the investor can withdraw the principal amount in parts whenever needed"],
-        answer: "Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest or customers can opt to close after a specific time"
+        options: ["Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest", "Redeemable NCDs can be freely sold back to the company at any time before maturity", "Redeemable NCDs mean the investor can withdraw the principal amount in parts whenever needed"],
+        answer: "Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest"
     },
     {
         question: "What are the interest payment modes in SML Finance NCD?",
@@ -151,8 +151,8 @@ const questions = [
     },
     {
         question: "What is the correct statement about a Demat account and investing in SML Finance NCD?",
-        options: ["A Demat account is not required for SML Finance NCD.", "Demat is required, the company can help a customer open a CDSL Demat account for free to invest in SML Finance NCD.", "A Demat account is only required for amounts above 15 Lakhs.", "Only Vanchinad NCD requires a Demat account."],
-        answer: "Demat is required, the company can help a customer open a CDSL Demat account for free to invest in SML Finance NCD."
+        options: ["A Demat account is not required for SML Finance NCD.", "Demat is required, the company can help a customer open a Demat account for free to invest in SML Finance NCD.", "A Demat account is only required for amounts above 15 Lakhs.", "Only Vanchinad NCD requires a Demat account."],
+        answer: "Demat is required, the company can help a customer open a Demat account for free to invest in SML Finance NCD."
     },
     {
         question: "What is a key difference between NCDs and FDs according to the training material?",
@@ -172,40 +172,13 @@ function shuffle(array) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const intermediatePage = document.getElementById('intermediatePage');
-    const learningModuleContainer = document.getElementById('learningModuleContainer');
-    const detailsForm = document.getElementById('detailsForm');
-    const testModuleBtn = document.getElementById('testModuleBtn');
-    const learningModuleBtn = document.getElementById('learningModuleBtn');
-    const backToHomeBtn = document.getElementById('backToHomeBtn');
-    const h1 = document.querySelector('h1');
-
-    testModuleBtn.addEventListener('click', () => {
-        intermediatePage.style.display = 'none';
-        detailsForm.style.display = 'block';
-        h1.textContent = 'Test on Investment Products';
-    });
-
-    learningModuleBtn.addEventListener('click', () => {
-        intermediatePage.style.display = 'none';
-        learningModuleContainer.style.display = 'block';
-        h1.textContent = 'Learning Module';
-    });
-
-    backToHomeBtn.addEventListener('click', () => {
-        learningModuleContainer.style.display = 'none';
-        intermediatePage.style.display = 'block';
-        h1.textContent = 'SML Finance Class Room';
-    });
-});
-
 document.getElementById('detailsForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission and page refresh
 
     const code = document.getElementById('code').value;
 
     try {
+        // Call the backend to check if the employee code already exists
         const response = await fetch('/.netlify/functions/check-submission', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -213,14 +186,17 @@ document.getElementById('detailsForm').addEventListener('submit', async function
         });
 
         if (response.status === 409) {
+            // The code exists; prevent the test from starting and show an alert
             alert("This Employee Code has already submitted the test. You cannot take the test again.");
             return;
         }
 
         if (!response.ok) {
+            // Handle other potential errors from the backend
             throw new Error(`Server error: ${response.status}`);
         }
 
+        // If the code is new (response.ok), proceed to start the test
         document.getElementById('detailsForm').style.display = 'none';
         document.getElementById('testContainer').style.display = 'block';
 
@@ -272,6 +248,7 @@ document.getElementById('nextBtn').addEventListener('click', async function() {
         return;
     }
 
+    // Check if an answer is selected for the current question
     const radios = document.getElementsByName(`question${currentQuestionIndex}`);
     const isAnswered = Array.from(radios).some(radio => radio.checked);
 
@@ -368,12 +345,14 @@ async function submitTest() {
     document.getElementById('downloadCertificateBtn').style.display = 'block';
 
     document.getElementById('downloadCertificateBtn').addEventListener('click', () => {
+        // Get the current date and format it
         const examDate = new Date().toLocaleDateString('en-IN', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
         });
 
+        // Use backticks (`) for the multi-line string
         const certificateContent = `
     <style>
         body { font-family: 'Times New Roman', serif; background: #f0f2f5; margin: 0; padding: 20px; }
