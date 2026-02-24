@@ -1,12 +1,27 @@
 const { google } = require('googleapis');
 
 exports.handler = async (event) => {
+    // Handle CORS preflight
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS'
+            },
+            body: ''
+        };
+    }
+
     try {
-        const { code } = JSON.parse(event.body);
+        const body = JSON.parse(event.body);
+        const code = (body.code || '').toString().trim();
 
         if (!code) {
             return {
                 statusCode: 400,
+                headers: { 'Access-Control-Allow-Origin': '*' },
                 body: JSON.stringify({ error: 'Missing employee code.' })
             };
         }
@@ -18,31 +33,37 @@ exports.handler = async (event) => {
         const sheets = google.sheets({ version: 'v4', auth });
 
         const spreadsheetId = '1dVJsvyms3XHVHJ47c2b0RuSIIG9PseXEiRU5fJ8md04';
-        const range = 'Sheet1!C:C'; // Check only the column with the Employee Code
 
+        // Fetch column C (Employee Code) starting from row 2 to skip the header row
         const response = await sheets.spreadsheets.values.get({
             spreadsheetId,
-            range,
+            range: 'Sheet1!C2:C',
         });
 
-        const existingCodes = response.data.values ? response.data.values.map(row => row[0]) : [];
-        
+        const rows = response.data.values || [];
+        // Trim whitespace on stored codes before comparing
+        const existingCodes = rows.map(row => (row[0] || '').toString().trim());
+
         if (existingCodes.includes(code)) {
             return {
-                statusCode: 409, // Conflict
-                body: JSON.stringify({ message: 'Employee code already exists.' })
+                statusCode: 409,
+                headers: { 'Access-Control-Allow-Origin': '*' },
+                body: JSON.stringify({ message: 'Employee code already exists. Test already submitted.' })
             };
         }
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'Employee code is new.' })
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            body: JSON.stringify({ message: 'Employee code is new. Proceed with test.' })
         };
+
     } catch (error) {
-        console.error('Error checking for existing submission:', error);
+        console.error('Error in check-submission:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Failed to check employee code.' })
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            body: JSON.stringify({ error: 'Failed to check employee code. Please try again.' })
         };
     }
 };
