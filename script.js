@@ -1,12 +1,17 @@
 const questions = [
     {
         question: "Which of the following companies is a Nidhi Company?",
-        options: ["SML Nidhi Finance ", "Vanchinad Finance Nidhi ", "Sangeeth Nidhi", "All of the above"],
+        options: ["SML Nidhi Finance", "Vanchinad Finance Nidhi", "Sangeeth Nidhi", "All of the above"],
         answer: "Sangeeth Nidhi"
     },
     {
         question: "Which of the following statements is true about NBFCs and Nidhi companies?",
-        options: ["NBFCs are regulated by the Ministry of Corporate Affairs (MCA), and Nidhi Companies are regulated by the RBI.", "NBFCs are regulated by the RBI, and Nidhi Companies are regulated by the Ministry of Corporate Affairs (MCA).", "Both NBFCs and Nidhi Companies are regulated by the RBI.", "Both NBFCs and Nidhi Companies are regulated by the Ministry of Corporate Affairs (MCA)."],
+        options: [
+            "NBFCs are regulated by the Ministry of Corporate Affairs (MCA), and Nidhi Companies are regulated by the RBI.",
+            "NBFCs are regulated by the RBI, and Nidhi Companies are regulated by the Ministry of Corporate Affairs (MCA).",
+            "Both NBFCs and Nidhi Companies are regulated by the RBI.",
+            "Both NBFCs and Nidhi Companies are regulated by the Ministry of Corporate Affairs (MCA)."
+        ],
         answer: "NBFCs are regulated by the RBI, and Nidhi Companies are regulated by the Ministry of Corporate Affairs (MCA)."
     },
     {
@@ -16,12 +21,22 @@ const questions = [
     },
     {
         question: "What does a 'put option' in an NCD mean?",
-        options: ["The company has the option to buy back the NCD from the investor before the maturity date.", "The investor has the right to sell back (Redeem/Close) the NCD to the company before the maturity date.", "The company has the right to sell the NCD to another investor.", "The investor must hold the NCD until the maturity date."],
+        options: [
+            "The company has the option to buy back the NCD from the investor before the maturity date.",
+            "The investor has the right to sell back (Redeem/Close) the NCD to the company before the maturity date.",
+            "The company has the right to sell the NCD to another investor.",
+            "The investor must hold the NCD until the maturity date."
+        ],
         answer: "The investor has the right to sell back (Redeem/Close) the NCD to the company before the maturity date."
     },
     {
         question: "What does it mean for an NCD to be 'secured'?",
-        options: ["The company guarantees a fixed interest rate for the entire period.", "The company promises to repay the investors with gold.", "The company pledges specific assets, as collateral to back the debenture, which can be used to repay investors if anything goes wrong.", "The NCD is protected by a government-backed insurance policy."],
+        options: [
+            "The company guarantees a fixed interest rate for the entire period.",
+            "The company promises to repay the investors with gold.",
+            "The company pledges specific assets, as collateral to back the debenture, which can be used to repay investors if anything goes wrong.",
+            "The NCD is protected by a government-backed insurance policy."
+        ],
         answer: "The company pledges specific assets, as collateral to back the debenture, which can be used to repay investors if anything goes wrong."
     },
     {
@@ -31,7 +46,12 @@ const questions = [
     },
     {
         question: "What is the closure remark for SML Finance NCDs?",
-        options: ["Closure allowed after 3 months.", "Closure allowed after 2 years.", "Closure allowed after 1 year.", "No premature closing allowed."],
+        options: [
+            "Closure allowed after 3 months.",
+            "Closure allowed after 2 years.",
+            "Closure allowed after 1 year.",
+            "No premature closing allowed."
+        ],
         answer: "Closure allowed after 1 year."
     },
     {
@@ -51,7 +71,12 @@ const questions = [
     },
     {
         question: "What is the reason given for the high-interest rates offered by the companies?",
-        options: ["The loans are provided to government institutions.", "The loans are for long periods, which allows for higher interest collection.", "The company primarily lend short-term, secured loans against liquid assets like gold.", "The companies have a high NPA, which they compensate for with higher interest rates."],
+        options: [
+            "The loans are provided to government institutions.",
+            "The loans are for long periods, which allows for higher interest collection.",
+            "The company primarily lend short-term, secured loans against liquid assets like gold.",
+            "The companies have a high NPA, which they compensate for with higher interest rates."
+        ],
         answer: "The company primarily lend short-term, secured loans against liquid assets like gold."
     },
     {
@@ -61,7 +86,12 @@ const questions = [
     },
     {
         question: "Which category of customer has to submit Form 15H?",
-        options: ["Normal Category (age below 60 years)", "Senior Citizen Category (age above 60 years)", "Super Senior Citizen Category (age above 80 years)", "Both Senior and Super Senior Citizen categories"],
+        options: [
+            "Normal Category (age below 60 years)",
+            "Senior Citizen Category (age above 60 years)",
+            "Super Senior Citizen Category (age above 80 years)",
+            "Both Senior and Super Senior Citizen categories"
+        ],
         answer: "Both Senior and Super Senior Citizen categories"
     },
     {
@@ -75,7 +105,7 @@ const questions = [
         answer: "2%"
     },
     {
-        question: "How often is the incentive for NCDs paid out by SML Finance ?",
+        question: "How often is the incentive for NCDs paid out by SML Finance?",
         options: ["One Time", "Yearly", "Monthly", "Quarterly"],
         answer: "Monthly"
     },
@@ -96,7 +126,12 @@ const questions = [
     },
     {
         question: "Which of the following is a key reason why an investor's money is considered safe with SML and Vanchinad Finance?",
-        options: ["They only lend to large corporations with excellent credit scores.", "Their main business is lending against gold, which is a liquid asset.", "They are government-owned and therefore have state backing.", "They offer government-backed insurance on all investments."],
+        options: [
+            "They only lend to large corporations with excellent credit scores.",
+            "Their main business is lending against gold, which is a liquid asset.",
+            "They are government-owned and therefore have state backing.",
+            "They offer government-backed insurance on all investments."
+        ],
         answer: "Their main business is lending against gold, which is a liquid asset."
     },
     {
@@ -110,8 +145,12 @@ const questions = [
         answer: "No cut"
     },
     {
-        question: "If a customer says, 'I don’t have a Demat account,' which of the following is a valid statement?",
-        options: ["Demat Support is provided by us", "Cutomer can invest through NSDL account", "Customer has to open CDSL account by their own"],
+        question: "If a customer says, 'I don't have a Demat account,' which of the following is a valid statement?",
+        options: [
+            "Demat Support is provided by us",
+            "Customer can invest through NSDL account",
+            "Customer has to open CDSL account by their own"
+        ],
         answer: "Demat Support is provided by us"
     },
     {
@@ -126,22 +165,41 @@ const questions = [
     },
     {
         question: "Which are the 3 financial Institutions of SML Group?",
-        options: ["SML Finance, Vanchinad Finance, Sangeeth Nidhi", "SML Finance, Vanchinad Finance, SML Solar", "SML Finance, Vanchinad Finance, Ayur Bethaniya"],
+        options: [
+            "SML Finance, Vanchinad Finance, Sangeeth Nidhi",
+            "SML Finance, Vanchinad Finance, SML Solar",
+            "SML Finance, Vanchinad Finance, Ayur Bethaniya"
+        ],
         answer: "SML Finance, Vanchinad Finance, Sangeeth Nidhi"
     },
     {
+        // FIX: Removed trailing period from answer so it matches the option text exactly
         question: "For Sangeeth Nidhi Recurring Deposits, what is the incentive for an employee?",
-        options: ["5% of first EMI & 2 % of first EMI from 2nd year onwards", "5% of first EMI & 10 % of first EMI from 2nd year onwards", "10% of first EMI & 5 % of first EMI from 2nd year onwards", "2% PA."],
-        answer: "10% of first EMI & 5 % of first EMI from 2nd year onwards"
+        options: [
+            "5% of first EMI & 2% of first EMI from 2nd year onwards",
+            "5% of first EMI & 10% of first EMI from 2nd year onwards",
+            "10% of first EMI & 5% of first EMI from 2nd year onwards",
+            "2% PA"
+        ],
+        answer: "10% of first EMI & 5% of first EMI from 2nd year onwards"
     },
     {
         question: "A customer with an annual interest income of above ₹3,50,000 is a Senior Citizen. Which form should they submit to avoid TDS, and is it accepted?",
-        options: ["Form 15G; it is accepted.", "Form 15H; it is accepted.", "Form 15G; it is not accepted.", "Form 15H; it is not accepted, and 10% TDS will be applied."],
+        options: [
+            "Form 15G; it is accepted.",
+            "Form 15H; it is accepted.",
+            "Form 15G; it is not accepted.",
+            "Form 15H; it is not accepted, and 10% TDS will be applied."
+        ],
         answer: "Form 15H; it is not accepted, and 10% TDS will be applied."
     },
     {
-        question: "What is the meaning of redemable ncd?",
-        options: ["Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest", "Redeemable NCDs can be freely sold back to the company at any time before maturity", "Redeemable NCDs mean the investor can withdraw the principal amount in parts whenever needed"],
+        question: "What is the meaning of redeemable NCD?",
+        options: [
+            "Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest",
+            "Redeemable NCDs can be freely sold back to the company at any time before maturity",
+            "Redeemable NCDs mean the investor can withdraw the principal amount in parts whenever needed"
+        ],
         answer: "Redeemable NCDs are those that the issuing company repays to investors at the end of the maturity period along with the agreed interest"
     },
     {
@@ -151,15 +209,26 @@ const questions = [
     },
     {
         question: "What is the correct statement about a Demat account and investing in SML Finance NCD?",
-        options: ["A Demat account is not required for SML Finance NCD.", "Demat is required, the company can help a customer open a Demat account for free to invest in SML Finance NCD.", "A Demat account is only required for amounts above 15 Lakhs.", "Only Vanchinad NCD requires a Demat account."],
+        options: [
+            "A Demat account is not required for SML Finance NCD.",
+            "Demat is required, the company can help a customer open a Demat account for free to invest in SML Finance NCD.",
+            "A Demat account is only required for amounts above 15 Lakhs.",
+            "Only Vanchinad NCD requires a Demat account."
+        ],
         answer: "Demat is required, the company can help a customer open a Demat account for free to invest in SML Finance NCD."
     },
     {
         question: "What is a key difference between NCDs and FDs according to the training material?",
-        options: ["NCDs are accepted by Nidhi Companies, while FDs are accepted by NBFCs.", "NCDs are debt instruments that can be converted into equity, while FDs cannot.", "NCDs are issued by NBFCs and FDs are accepted by Nidhi Companies.", "NCDs are regulated by the MCA, and FDs are regulated by the RBI."],
+        options: [
+            "NCDs are accepted by Nidhi Companies, while FDs are accepted by NBFCs.",
+            "NCDs are debt instruments that can be converted into equity, while FDs cannot.",
+            "NCDs are issued by NBFCs and FDs are accepted by Nidhi Companies.",
+            "NCDs are regulated by the MCA, and FDs are regulated by the RBI."
+        ],
         answer: "NCDs are issued by NBFCs and FDs are accepted by Nidhi Companies."
     }
 ];
+
 let testQuestions = [];
 let currentQuestionIndex = 0;
 let userAnswers = {};
@@ -172,13 +241,17 @@ function shuffle(array) {
     }
 }
 
-document.getElementById('detailsForm').addEventListener('submit', async function(e) {
-    e.preventDefault(); // Prevent the default form submission and page refresh
+document.getElementById('detailsForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-    const code = document.getElementById('code').value;
+    const code = document.getElementById('code').value.trim();
+    const submitBtn = this.querySelector('button[type="submit"]');
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Checking...';
 
     try {
-        // Call the backend to check if the employee code already exists
         const response = await fetch('/.netlify/functions/check-submission', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -186,32 +259,38 @@ document.getElementById('detailsForm').addEventListener('submit', async function
         });
 
         if (response.status === 409) {
-            // The code exists; prevent the test from starting and show an alert
             alert("This Employee Code has already submitted the test. You cannot take the test again.");
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Start Test';
             return;
         }
 
         if (!response.ok) {
-            // Handle other potential errors from the backend
             throw new Error(`Server error: ${response.status}`);
         }
 
-        // If the code is new (response.ok), proceed to start the test
+        // Proceed to start the test
         document.getElementById('detailsForm').style.display = 'none';
         document.getElementById('testContainer').style.display = 'block';
 
         shuffle(questions);
         testQuestions = questions.slice(0, 20);
-        
+
         const testForm = document.getElementById('testForm');
+        testForm.innerHTML = ''; // Clear any previous questions
+
         testQuestions.forEach((q, index) => {
+            // Shuffle the options for this question
+            const shuffledOptions = [...q.options];
+            shuffle(shuffledOptions);
+
             const div = document.createElement('div');
             div.classList.add('question-block');
             div.innerHTML = `
                 <p>${index + 1}. ${q.question}</p>
-                ${q.options.map(opt => `
+                ${shuffledOptions.map(opt => `
                     <label>
-                        <input type="radio" name="question${index}" value="${opt}" required>
+                        <input type="radio" name="question${index}" value="${opt}">
                         ${opt}
                     </label>
                 `).join('')}
@@ -219,36 +298,46 @@ document.getElementById('detailsForm').addEventListener('submit', async function
             testForm.appendChild(div);
         });
 
+        currentQuestionIndex = 0;
+        userAnswers = {};
         displayQuestion(currentQuestionIndex);
 
     } catch (error) {
         console.error('Error during pre-submission check:', error);
-        alert('An error occurred. Please try again.');
+        alert('An error occurred while connecting to the server. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Start Test';
     }
 });
 
 function displayQuestion(index) {
     const questionBlocks = document.querySelectorAll('.question-block');
     questionBlocks.forEach(block => block.style.display = 'none');
-    
-    const currentBlock = questionBlocks[index];
-    currentBlock.style.display = 'block';
 
-    document.getElementById('questionCounter').textContent = `Question ${index + 1} of ${testQuestions.length}`;
-    
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    prevBtn.style.display = (index > 0) ? 'inline-block' : 'none';
-    nextBtn.textContent = (index === testQuestions.length - 1) ? 'Submit Answers' : 'Next';
-}
+    questionBlocks[index].style.display = 'block';
 
-document.getElementById('nextBtn').addEventListener('click', async function() {
-    if (isSubmitting) {
-        return;
+    // Restore previously selected answer if user navigated back
+    const savedAnswer = userAnswers[`question${index}`];
+    if (savedAnswer) {
+        const radios = document.getElementsByName(`question${index}`);
+        radios.forEach(radio => {
+            if (radio.value === savedAnswer) radio.checked = true;
+        });
     }
 
-    // Check if an answer is selected for the current question
+    document.getElementById('questionCounter').textContent = `Question ${index + 1} of ${testQuestions.length}`;
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    prevBtn.style.display = (index > 0) ? 'inline-block' : 'none';
+    nextBtn.textContent = (index === testQuestions.length - 1) ? 'Submit Answers' : 'Next';
+    nextBtn.disabled = false;
+}
+
+document.getElementById('nextBtn').addEventListener('click', async function () {
+    if (isSubmitting) return;
+
     const radios = document.getElementsByName(`question${currentQuestionIndex}`);
     const isAnswered = Array.from(radios).some(radio => radio.checked);
 
@@ -264,15 +353,14 @@ document.getElementById('nextBtn').addEventListener('click', async function() {
         nextBtn.disabled = true;
         nextBtn.textContent = 'Submitting...';
         isSubmitting = true;
-
-        submitTest();
+        await submitTest();
     } else {
         currentQuestionIndex++;
         displayQuestion(currentQuestionIndex);
     }
 });
 
-document.getElementById('prevBtn').addEventListener('click', function() {
+document.getElementById('prevBtn').addEventListener('click', function () {
     saveAnswer(currentQuestionIndex);
     currentQuestionIndex--;
     displayQuestion(currentQuestionIndex);
@@ -294,8 +382,13 @@ async function submitTest() {
     const userResponses = {};
 
     testQuestions.forEach((q, index) => {
-        const userAnswer = userAnswers[`question${index}`];
-        userResponses[`question${index}`] = userAnswer;
+        const userAnswer = userAnswers[`question${index}`] || '';
+        userResponses[`question${index + 1}`] = {
+            question: q.question,
+            your_answer: userAnswer,
+            correct_answer: q.answer,
+            is_correct: userAnswer === q.answer
+        };
         correctAnswers[`question${index}`] = q.answer;
 
         if (userAnswer === q.answer) {
@@ -304,10 +397,10 @@ async function submitTest() {
     });
 
     const details = {
-        name: document.getElementById('name').value,
-        code: document.getElementById('code').value,
-        designation: document.getElementById('designation').value,
-        branch: document.getElementById('branch').value
+        name: document.getElementById('name').value.trim(),
+        code: document.getElementById('code').value.trim(),
+        designation: document.getElementById('designation').value.trim(),
+        branch: document.getElementById('branch').value.trim()
     };
 
     function getGrade(score) {
@@ -323,145 +416,120 @@ async function submitTest() {
         const response = await fetch('/.netlify/functions/submit-test', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ details, score, userResponses, correctAnswers, grade })
+            body: JSON.stringify({ details, score, grade, userResponses })
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            // Even if save fails, show results to employee
+            console.error(`Backend error: ${response.status}`);
+        } else {
+            const result = await response.json();
+            console.log('Submission saved:', result);
         }
-
-        const result = await response.json();
-        console.log('Backend response:', result);
     } catch (error) {
-        console.error('Error submitting test:', error);
+        console.error('Error submitting test to backend:', error);
     }
-    
+
+    // Always show results regardless of backend status
     document.getElementById('testContainer').style.display = 'none';
     document.getElementById('resultsContainer').style.display = 'block';
     document.getElementById('scoreDisplay').textContent = `Your score is: ${score} out of 50`;
     document.getElementById('gradeDisplay').textContent = `Your grade is: ${grade}`;
 
-  if (score >= 0) {
-    document.getElementById('downloadCertificateBtn').style.display = 'block';
+    // FIX: Certificate only shown for passing score (30+)
+    if (score >= 30) {
+        document.getElementById('downloadCertificateBtn').style.display = 'block';
+        document.getElementById('certificateMessage').textContent = 'Congratulations! You have passed the test.';
 
-    document.getElementById('downloadCertificateBtn').addEventListener('click', () => {
-        // Get the current date and format it
-        const examDate = new Date().toLocaleDateString('en-IN', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+        document.getElementById('downloadCertificateBtn').addEventListener('click', () => {
+            const examDate = new Date().toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
 
-        // Use backticks (`) for the multi-line string
-        const certificateContent = `
-    <style>
-        body { font-family: 'Times New Roman', serif; background: #f0f2f5; margin: 0; padding: 20px; }
-        .certificate {
-            width: 800px;
-            height: 600px;
-            border: 20px solid #004d80;
-            padding: 20px;
-            text-align: center;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            margin: auto;
-            position: relative;
-            padding-bottom: 120px;
-        }
-        .certificate-logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100px;
-        }
-        .certificate h1 {
-            font-size: 48px;
-            color: #004d80;
-            margin-top: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .certificate h2 {
-            font-size: 24px;
-            color: #343a40;
-            margin-top: 20px;
-        }
-        .certificate p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-top: 30px;
-        }
-        .certificate .name {
-            font-size: 32px;
-            font-weight: bold;
-            color: #007bff;
-            margin: 20px 0;
-        }
-        .signatures {
-            display: flex;
-            justify-content: space-around;
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-        }
-        .signatures div {
-            text-align: center;
-        }
-        .signatures img {
-            height: 50px;
-            margin-bottom: 5px;
-        }
-        .signatures p {
-            font-size: 16px;
-            margin: 0;
-            border-bottom: 1px solid #343a40;
-            width: 150px;
-            padding-bottom: 5px;
-        }
-    </style>
-    <div class="certificate">
-        <img src="v.png" alt="Logo" class="certificate-logo">
-        <h1>Certificate of Completion</h1>
-        <p>This certifies that</p>
-        <p class="name">${details.name}</p>
-        <p>has successfully completed the training validation test.</p>
-        <p><strong>Employee Code:</strong> ${details.code} &bull; <strong>Designation:</strong> ${details.designation} &bull; <strong>Branch:</strong> ${details.branch}</p>
-        <p><strong>Score:</strong> ${score} / 50 &bull; <strong>Grade:</strong> ${grade}</p>
-        <p class="exam-date">Date of Completion: ${examDate}</p>
-        <div class="signatures">
-            <div>
-                <p>HR Head</p>
-            </div>
-            <div>
-                <p>Training Head</p>
-            </div>
-        </div>
+            const certificateContent = `
+<!DOCTYPE html>
+<html>
+<head><title>Certificate - ${details.name}</title></head>
+<body>
+<style>
+    body { font-family: 'Times New Roman', serif; background: #f0f2f5; margin: 0; padding: 20px; }
+    .certificate {
+        width: 800px;
+        height: 600px;
+        border: 20px solid #004d80;
+        padding: 20px;
+        text-align: center;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        margin: auto;
+        position: relative;
+        padding-bottom: 120px;
+        box-sizing: border-box;
+    }
+    .certificate-logo { position: absolute; top: 20px; left: 20px; width: 100px; }
+    .certificate h1 { font-size: 42px; color: #004d80; margin-top: 50px; text-transform: uppercase; letter-spacing: 2px; }
+    .certificate h2 { font-size: 22px; color: #343a40; margin-top: 10px; }
+    .certificate p { font-size: 18px; line-height: 1.8; margin-top: 15px; }
+    .certificate .name { font-size: 32px; font-weight: bold; color: #007bff; margin: 15px 0; }
+    .signatures {
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+    .signatures div { text-align: center; }
+    .signatures p { font-size: 16px; margin: 0; border-top: 1px solid #343a40; width: 150px; padding-top: 5px; }
+</style>
+<div class="certificate">
+    <img src="v.png" alt="Logo" class="certificate-logo">
+    <h1>Certificate of Completion</h1>
+    <h2>SML Finance Class Room — Investment Products Training</h2>
+    <p>This certifies that</p>
+    <p class="name">${details.name}</p>
+    <p>has successfully completed the training validation test.</p>
+    <p><strong>Employee Code:</strong> ${details.code} &bull; <strong>Designation:</strong> ${details.designation} &bull; <strong>Branch:</strong> ${details.branch}</p>
+    <p><strong>Score:</strong> ${score} / 50 &bull; <strong>Grade:</strong> ${grade}</p>
+    <p><strong>Date of Completion:</strong> ${examDate}</p>
+    <div class="signatures">
+        <div><p>HR Head</p></div>
+        <div><p>Training Head</p></div>
     </div>
-`;
-        const newWindow = window.open('', 'Certificate', 'width=900,height=700');
-        newWindow.document.write(certificateContent);
-        newWindow.document.close();
-        newWindow.print();
-    });
-} else {
-    document.getElementById('certificateMessage').textContent = 'You did not pass. Please try again.';
-}
+</div>
+</body>
+</html>`;
+
+            const newWindow = window.open('', 'Certificate', 'width=900,height=700');
+            newWindow.document.write(certificateContent);
+            newWindow.document.close();
+            newWindow.print();
+        });
+    } else {
+        document.getElementById('certificateMessage').textContent =
+            `You scored ${score}/50. A minimum score of 30 is required to pass. Please re-attempt after further training.`;
+    }
+
+    // Download full response JSON
     document.getElementById('downloadResponseBtn').style.display = 'block';
     document.getElementById('downloadResponseBtn').addEventListener('click', () => {
         const responseData = {
-            details: details,
-            answers_submitted: userResponses,
-            correct_answers: correctAnswers
+            employee: details,
+            score: score,
+            grade: grade,
+            responses: userResponses
         };
         const blob = new Blob([JSON.stringify(responseData, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'your_response.json';
+        a.download = `response_${details.code}.json`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     });
 }
