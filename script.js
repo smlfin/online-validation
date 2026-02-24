@@ -30,21 +30,21 @@ var questions = [
     q: "What does a 'put option' in an NCD mean?",
     opts: [
       "The company has the option to buy back the NCD before maturity.",
-      "The investor has the right to sell back the NCD to the company before maturity.",
+      "The investor has the right to sell back / Redeem the NCD to the company after lock in but before maturity.",
       "The company has the right to sell the NCD to another investor.",
       "The investor must hold the NCD until the maturity date."
     ],
-    a: "The investor has the right to sell back the NCD to the company before maturity."
+    a: "The investor has the right to sell back / Redeem the NCD to the company after lock in but before maturity."
   },
   {
     q: "What does it mean for an NCD to be 'secured'?",
     opts: [
       "The company guarantees a fixed interest rate for the entire period.",
       "The company promises to repay the investors with gold.",
-      "The company pledges specific assets as collateral to back the debenture.",
+      "The company pledges specific assets as collateral to back the debenture / NCD.",
       "The NCD is protected by a government-backed insurance policy."
     ],
-    a: "The company pledges specific assets as collateral to back the debenture."
+    a: "The company pledges specific assets as collateral to back the debenture / NCD."
   },
   {
     q: "What is the interest cut if a Vanchinad Finance NCD is closed between 1 and 2 years?",
@@ -56,10 +56,10 @@ var questions = [
     opts: [
       "Closure allowed after 3 months.",
       "Closure allowed after 2 years.",
-      "Closure allowed after 1 year.",
+      "Closure allowed after 1 year with conditions.",
       "No premature closing allowed."
     ],
-    a: "Closure allowed after 1 year."
+    a: "Closure allowed after 1 year with conditions."
   },
   {
     q: "Which product from SML Finance Ltd and Vanchinad Finance does NOT allow premature closing?",
@@ -77,7 +77,7 @@ var questions = [
     a: "70 Months"
   },
   {
-    q: "What is the reason given for the high-interest rates offered by the companies?",
+    q: "What is the reason given for the high-interest rates offered by our companies?",
     opts: [
       "The loans are provided to government institutions.",
       "The loans are for long periods, which allows for higher interest collection.",
@@ -103,8 +103,8 @@ var questions = [
   },
   {
     q: "What is the annual interest threshold above which Normal Category customers (below 60) submit Form 15G?",
-    opts: ["₹2,50,000", "₹3,00,000", "₹5,000", "₹5,00,000"],
-    a: "₹2,50,000"
+    opts: ["₹2,50,000", "₹4,00,000", "₹5,000", "₹5,00,000"],
+    a: "₹4,00,000"
   },
   {
     q: "What is the incentive percentage for SML Finance and Vanchinad Finance on a Golden Bond?",
@@ -148,8 +148,8 @@ var questions = [
   },
   {
     q: "What is the penalty for a customer who closes a Vanchinad NCD after 3 years?",
-    opts: ["2% interest cut", "1% interest cut", "9% interest cut for the last 6 months", "No cut"],
-    a: "No cut"
+    opts: ["2% interest cut", "1% interest cut", "9% interest cut for the last 6 months", "No cut if closed on Anniversary Dates"],
+    a: "No cut if closed on Anniversary Dates"
   },
   {
     q: "If a customer says 'I don't have a Demat account,' which is a valid statement?",
@@ -190,7 +190,7 @@ var questions = [
     a: "10% of first EMI & 5% of first EMI from 2nd year onwards"
   },
   {
-    q: "A Senior Citizen has annual interest income above ₹3,50,000. Which form to avoid TDS, and is it accepted?",
+    q: "A Senior Citizen has annual interest income above ₹4,00,000. Which form to avoid TDS, and is it accepted?",
     opts: [
       "Form 15G; it is accepted.",
       "Form 15H; it is accepted.",
@@ -203,10 +203,10 @@ var questions = [
     q: "What is the meaning of redeemable NCD?",
     opts: [
       "Redeemable NCDs are repaid by the issuing company at maturity along with agreed interest",
-      "Redeemable NCDs can be freely sold back to the company at any time before maturity",
+      "Redeemable NCDs can be freely sold back to the company at any time after lock in & before maturity",
       "Redeemable NCDs mean the investor can withdraw the principal in parts whenever needed"
     ],
-    a: "Redeemable NCDs are repaid by the issuing company at maturity along with agreed interest"
+    a: "Redeemable NCDs can be freely sold back to the company at any time after lock in & before maturity"
   },
   {
     q: "What are the interest payment modes in SML Finance NCD?",
