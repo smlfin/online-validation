@@ -9,25 +9,8 @@
 <body>
     <div class="container">
         <img src="v.png" alt="Vanchinad Finance Logo" class="logo">
-        <h1>Vanchinad Finance Class Room</h1>
-
-        <div id="intermediatePage">
-            <h2>Select a Module</h2>
-            <button id="learningModuleBtn">Learning Module</button>
-            <button id="testModuleBtn">Test on Investment Products</button>
-        </div>
-
-        <div id="learningModuleContainer" style="display:none;">
-            <h2>Demat Module</h2>
-            <video controls>
-                <source src="demvid.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <button id="backToHomeBtn">Back to Modules</button>
-        </div>
-
-        <form id="detailsForm" style="display:none;">
-            <p>Please enter your details to start the test.</p>
+        <h1>SML Finance Class Room</h1>
+        <form id="detailsForm">
             <input type="text" id="name" placeholder="Employee Name" required>
             <input type="text" id="code" placeholder="Employee Code" required>
             <input type="text" id="designation" placeholder="Designation" required>
@@ -37,7 +20,8 @@
 
         <div id="testContainer" style="display:none;">
             <span id="questionCounter"></span>
-            <form id="testForm"></form>
+            <form id="testForm">
+                </form>
             <div class="navigation-buttons">
                 <button type="button" id="prevBtn" style="display:none;">Previous</button>
                 <button type="button" id="nextBtn">Next</button>
