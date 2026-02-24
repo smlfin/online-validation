@@ -173,7 +173,6 @@ const questions = [
         answer: "SML Finance, Vanchinad Finance, Sangeeth Nidhi"
     },
     {
-        // FIX: Removed trailing period from answer so it matches the option text exactly
         question: "For Sangeeth Nidhi Recurring Deposits, what is the incentive for an employee?",
         options: [
             "5% of first EMI & 2% of first EMI from 2nd year onwards",
@@ -241,117 +240,88 @@ function shuffle(array) {
     }
 }
 
-document.getElementById('detailsForm').addEventListener('submit', async function (e) {
+// ── START TEST: No backend call at start. Test launches immediately. ──
+// Duplicate prevention is enforced server-side at submission time only.
+document.getElementById('detailsForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const code = document.getElementById('code').value.trim();
-    const submitBtn = this.querySelector('button[type="submit"]');
+    // Reset state
+    currentQuestionIndex = 0;
+    userAnswers = {};
+    isSubmitting = false;
 
-    // Show loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Checking...';
+    // Pick 20 random shuffled questions
+    const pool = [...questions];
+    shuffle(pool);
+    testQuestions = pool.slice(0, 20);
 
-    try {
-        const response = await fetch('/.netlify/functions/check-submission', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ code })
-        });
+    // Build question blocks
+    const testForm = document.getElementById('testForm');
+    testForm.innerHTML = '';
 
-        if (response.status === 409) {
-            alert("This Employee Code has already submitted the test. You cannot take the test again.");
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Start Test';
-            return;
-        }
+    testQuestions.forEach((q, index) => {
+        const opts = [...q.options];
+        shuffle(opts);
 
-        if (!response.ok) {
-            throw new Error(`Server error: ${response.status}`);
-        }
+        const div = document.createElement('div');
+        div.classList.add('question-block');
+        div.innerHTML = `
+            <p>${index + 1}. ${q.question}</p>
+            ${opts.map(opt => `
+                <label>
+                    <input type="radio" name="question${index}" value="${opt}">
+                    ${opt}
+                </label>
+            `).join('')}
+        `;
+        testForm.appendChild(div);
+    });
 
-        // Proceed to start the test
-        document.getElementById('detailsForm').style.display = 'none';
-        document.getElementById('testContainer').style.display = 'block';
+    // Reset navigation buttons
+    const nextBtn = document.getElementById('nextBtn');
+    nextBtn.disabled = false;
+    nextBtn.textContent = 'Next';
 
-        shuffle(questions);
-        testQuestions = questions.slice(0, 20);
+    // Switch views
+    document.getElementById('detailsForm').style.display = 'none';
+    document.getElementById('testContainer').style.display = 'block';
 
-        const testForm = document.getElementById('testForm');
-        testForm.innerHTML = ''; // Clear any previous questions
-
-        testQuestions.forEach((q, index) => {
-            // Shuffle the options for this question
-            const shuffledOptions = [...q.options];
-            shuffle(shuffledOptions);
-
-            const div = document.createElement('div');
-            div.classList.add('question-block');
-            div.innerHTML = `
-                <p>${index + 1}. ${q.question}</p>
-                ${shuffledOptions.map(opt => `
-                    <label>
-                        <input type="radio" name="question${index}" value="${opt}">
-                        ${opt}
-                    </label>
-                `).join('')}
-            `;
-            testForm.appendChild(div);
-        });
-
-        currentQuestionIndex = 0;
-        userAnswers = {};
-        displayQuestion(currentQuestionIndex);
-
-    } catch (error) {
-        console.error('Error during pre-submission check:', error);
-        alert('An error occurred while connecting to the server. Please try again.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Start Test';
-    }
+    displayQuestion(0);
 });
 
 function displayQuestion(index) {
-    const questionBlocks = document.querySelectorAll('.question-block');
-    questionBlocks.forEach(block => block.style.display = 'none');
+    const blocks = document.querySelectorAll('.question-block');
+    blocks.forEach(b => b.style.display = 'none');
+    blocks[index].style.display = 'block';
 
-    questionBlocks[index].style.display = 'block';
-
-    // Restore previously selected answer if user navigated back
-    const savedAnswer = userAnswers[`question${index}`];
-    if (savedAnswer) {
-        const radios = document.getElementsByName(`question${index}`);
-        radios.forEach(radio => {
-            if (radio.value === savedAnswer) radio.checked = true;
-        });
+    // Restore saved answer when navigating back
+    const saved = userAnswers[`question${index}`];
+    if (saved) {
+        document.getElementsByName(`question${index}`)
+            .forEach(r => { if (r.value === saved) r.checked = true; });
     }
 
-    document.getElementById('questionCounter').textContent = `Question ${index + 1} of ${testQuestions.length}`;
-
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    prevBtn.style.display = (index > 0) ? 'inline-block' : 'none';
-    nextBtn.textContent = (index === testQuestions.length - 1) ? 'Submit Answers' : 'Next';
-    nextBtn.disabled = false;
+    document.getElementById('questionCounter').textContent =
+        `Question ${index + 1} of ${testQuestions.length}`;
+    document.getElementById('prevBtn').style.display = index > 0 ? 'inline-block' : 'none';
+    document.getElementById('nextBtn').textContent =
+        index === testQuestions.length - 1 ? 'Submit Answers' : 'Next';
 }
 
 document.getElementById('nextBtn').addEventListener('click', async function () {
     if (isSubmitting) return;
 
     const radios = document.getElementsByName(`question${currentQuestionIndex}`);
-    const isAnswered = Array.from(radios).some(radio => radio.checked);
-
-    if (!isAnswered) {
-        alert("Please select an answer before proceeding.");
+    if (!Array.from(radios).some(r => r.checked)) {
+        alert('Please select an answer before proceeding.');
         return;
     }
 
     saveAnswer(currentQuestionIndex);
 
     if (currentQuestionIndex === testQuestions.length - 1) {
-        const nextBtn = document.getElementById('nextBtn');
-        nextBtn.disabled = true;
-        nextBtn.textContent = 'Submitting...';
+        this.disabled = true;
+        this.textContent = 'Submitting...';
         isSubmitting = true;
         await submitTest();
     } else {
@@ -367,166 +337,121 @@ document.getElementById('prevBtn').addEventListener('click', function () {
 });
 
 function saveAnswer(index) {
-    const radios = document.getElementsByName(`question${index}`);
-    for (const radio of radios) {
-        if (radio.checked) {
-            userAnswers[`question${index}`] = radio.value;
-            break;
-        }
-    }
+    document.getElementsByName(`question${index}`)
+        .forEach(r => { if (r.checked) userAnswers[`question${index}`] = r.value; });
 }
 
 async function submitTest() {
     let score = 0;
-    const correctAnswers = {};
     const userResponses = {};
 
     testQuestions.forEach((q, index) => {
-        const userAnswer = userAnswers[`question${index}`] || '';
-        userResponses[`question${index + 1}`] = {
+        const ans = userAnswers[`question${index}`] || '';
+        const correct = ans === q.answer;
+        if (correct) score += 2.5;
+        userResponses[`Q${index + 1}`] = {
             question: q.question,
-            your_answer: userAnswer,
+            your_answer: ans,
             correct_answer: q.answer,
-            is_correct: userAnswer === q.answer
+            is_correct: correct
         };
-        correctAnswers[`question${index}`] = q.answer;
-
-        if (userAnswer === q.answer) {
-            score += 2.5;
-        }
     });
 
     const details = {
-        name: document.getElementById('name').value.trim(),
-        code: document.getElementById('code').value.trim(),
+        name:        document.getElementById('name').value.trim(),
+        code:        document.getElementById('code').value.trim(),
         designation: document.getElementById('designation').value.trim(),
-        branch: document.getElementById('branch').value.trim()
+        branch:      document.getElementById('branch').value.trim()
     };
 
-    function getGrade(score) {
-        if (score >= 45) return 'Excellent';
-        if (score >= 40) return 'Good';
-        if (score >= 30) return 'Average';
-        return 'Poor';
-    }
+    const grade = score >= 45 ? 'Excellent'
+                : score >= 40 ? 'Good'
+                : score >= 30 ? 'Average'
+                : 'Poor';
 
-    const grade = getGrade(score);
-
+    // ── Save to Google Sheet ──
     try {
-        const response = await fetch('/.netlify/functions/submit-test', {
+        const res = await fetch('/.netlify/functions/submit-test', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ details, score, grade, userResponses })
         });
-
-        if (!response.ok) {
-            // Even if save fails, show results to employee
-            console.error(`Backend error: ${response.status}`);
+        const result = await res.json();
+        if (res.status === 409) {
+            console.warn('Duplicate submission:', result.error);
+        } else if (!res.ok) {
+            console.error('Backend error:', result.error);
         } else {
-            const result = await response.json();
-            console.log('Submission saved:', result);
+            console.log('Saved:', result.message);
         }
-    } catch (error) {
-        console.error('Error submitting test to backend:', error);
+    } catch (err) {
+        console.error('Network error — could not reach backend:', err);
     }
 
-    // Always show results regardless of backend status
+    // ── Always show results ──
     document.getElementById('testContainer').style.display = 'none';
     document.getElementById('resultsContainer').style.display = 'block';
     document.getElementById('scoreDisplay').textContent = `Your score is: ${score} out of 50`;
     document.getElementById('gradeDisplay').textContent = `Your grade is: ${grade}`;
 
-    // FIX: Certificate only shown for passing score (30+)
     if (score >= 30) {
+        document.getElementById('certificateMessage').textContent =
+            'Congratulations! You have passed the test.';
         document.getElementById('downloadCertificateBtn').style.display = 'block';
-        document.getElementById('certificateMessage').textContent = 'Congratulations! You have passed the test.';
 
         document.getElementById('downloadCertificateBtn').addEventListener('click', () => {
-            const examDate = new Date().toLocaleDateString('en-IN', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
+            const examDate = new Date().toLocaleDateString('en-IN',
+                { year: 'numeric', month: 'long', day: 'numeric' });
 
-            const certificateContent = `
-<!DOCTYPE html>
-<html>
-<head><title>Certificate - ${details.name}</title></head>
-<body>
+            const win = window.open('', 'Certificate', 'width=900,height=700');
+            win.document.write(`<!DOCTYPE html><html><head><title>Certificate</title></head><body>
 <style>
-    body { font-family: 'Times New Roman', serif; background: #f0f2f5; margin: 0; padding: 20px; }
-    .certificate {
-        width: 800px;
-        height: 600px;
-        border: 20px solid #004d80;
-        padding: 20px;
-        text-align: center;
-        background: #fff;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        margin: auto;
-        position: relative;
-        padding-bottom: 120px;
-        box-sizing: border-box;
-    }
-    .certificate-logo { position: absolute; top: 20px; left: 20px; width: 100px; }
-    .certificate h1 { font-size: 42px; color: #004d80; margin-top: 50px; text-transform: uppercase; letter-spacing: 2px; }
-    .certificate h2 { font-size: 22px; color: #343a40; margin-top: 10px; }
-    .certificate p { font-size: 18px; line-height: 1.8; margin-top: 15px; }
-    .certificate .name { font-size: 32px; font-weight: bold; color: #007bff; margin: 15px 0; }
-    .signatures {
-        display: flex;
-        justify-content: space-around;
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-    }
-    .signatures div { text-align: center; }
-    .signatures p { font-size: 16px; margin: 0; border-top: 1px solid #343a40; width: 150px; padding-top: 5px; }
+  body{font-family:'Times New Roman',serif;background:#f0f2f5;margin:0;padding:20px}
+  .cert{width:800px;min-height:580px;border:20px solid #004d80;padding:30px;text-align:center;
+        background:#fff;box-shadow:0 0 10px rgba(0,0,0,.5);margin:auto;position:relative;
+        box-sizing:border-box;padding-bottom:100px}
+  .cert-logo{position:absolute;top:20px;left:20px;width:90px}
+  .cert h1{font-size:38px;color:#004d80;margin-top:40px;text-transform:uppercase;letter-spacing:2px}
+  .cert h2{font-size:17px;color:#555;margin-top:5px}
+  .cert p{font-size:17px;line-height:1.8;margin-top:12px}
+  .emp-name{font-size:30px;font-weight:bold;color:#007bff;margin:15px 0}
+  .sigs{display:flex;justify-content:space-around;position:absolute;bottom:25px;left:10%;width:80%}
+  .sigs p{font-size:14px;margin:0;border-top:1px solid #343a40;padding-top:5px;width:130px;text-align:center}
 </style>
-<div class="certificate">
-    <img src="v.png" alt="Logo" class="certificate-logo">
-    <h1>Certificate of Completion</h1>
-    <h2>SML Finance Class Room — Investment Products Training</h2>
-    <p>This certifies that</p>
-    <p class="name">${details.name}</p>
-    <p>has successfully completed the training validation test.</p>
-    <p><strong>Employee Code:</strong> ${details.code} &bull; <strong>Designation:</strong> ${details.designation} &bull; <strong>Branch:</strong> ${details.branch}</p>
-    <p><strong>Score:</strong> ${score} / 50 &bull; <strong>Grade:</strong> ${grade}</p>
-    <p><strong>Date of Completion:</strong> ${examDate}</p>
-    <div class="signatures">
-        <div><p>HR Head</p></div>
-        <div><p>Training Head</p></div>
-    </div>
-</div>
-</body>
-</html>`;
-
-            const newWindow = window.open('', 'Certificate', 'width=900,height=700');
-            newWindow.document.write(certificateContent);
-            newWindow.document.close();
-            newWindow.print();
+<div class="cert">
+  <img src="v.png" alt="Logo" class="cert-logo">
+  <h1>Certificate of Completion</h1>
+  <h2>SML Finance Class Room — Investment Products Training</h2>
+  <p>This certifies that</p>
+  <p class="emp-name">${details.name}</p>
+  <p>has successfully completed the Investment Products Training Validation Test.</p>
+  <p><strong>Employee Code:</strong> ${details.code} &bull;
+     <strong>Designation:</strong> ${details.designation} &bull;
+     <strong>Branch:</strong> ${details.branch}</p>
+  <p><strong>Score:</strong> ${score} / 50 &bull; <strong>Grade:</strong> ${grade}</p>
+  <p><strong>Date:</strong> ${examDate}</p>
+  <div class="sigs">
+    <div><p>HR Head</p></div>
+    <div><p>Training Head</p></div>
+  </div>
+</div></body></html>`);
+            win.document.close();
+            win.print();
         });
     } else {
         document.getElementById('certificateMessage').textContent =
             `You scored ${score}/50. A minimum score of 30 is required to pass. Please re-attempt after further training.`;
     }
 
-    // Download full response JSON
     document.getElementById('downloadResponseBtn').style.display = 'block';
     document.getElementById('downloadResponseBtn').addEventListener('click', () => {
-        const responseData = {
-            employee: details,
-            score: score,
-            grade: grade,
-            responses: userResponses
-        };
-        const blob = new Blob([JSON.stringify(responseData, null, 2)], { type: 'application/json' });
+        const blob = new Blob(
+            [JSON.stringify({ employee: details, score, grade, responses: userResponses }, null, 2)],
+            { type: 'application/json' }
+        );
         const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `response_${details.code}.json`;
+        const a = Object.assign(document.createElement('a'),
+            { href: url, download: `response_${details.code}.json` });
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
