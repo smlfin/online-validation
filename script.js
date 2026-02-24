@@ -132,7 +132,7 @@ const questions = [
     {
         question: "For Sangeeth Nidhi Recurring Deposits, what is the incentive for an employee?",
         options: ["5% of first EMI & 2 % of first EMI from 2nd year onwards", "5% of first EMI & 10 % of first EMI from 2nd year onwards", "10% of first EMI & 5 % of first EMI from 2nd year onwards", "2% PA."],
-        answer: "10% of first EMI & 5 % of first EMI from 2nd year onwards."
+        answer: "10% of first EMI & 5 % of first EMI from 2nd year onwards"
     },
     {
         question: "A customer with an annual interest income of above ₹3,50,000 is a Senior Citizen. Which form should they submit to avoid TDS, and is it accepted?",
