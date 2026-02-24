@@ -250,10 +250,39 @@ function shuffle(arr) {
   return arr;
 }
 
-// ── Start test on form submit (no network call — instant) ─────
+// ── Start test on form submit — checks backend first ──────────
 document.getElementById('detailsForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
+  var code    = document.getElementById('code').value.trim();
+  var btn     = this.querySelector('button[type="submit"]');
+  btn.disabled    = true;
+  btn.textContent = 'Checking...';
+
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    body:   JSON.stringify({ action: 'check', code: code })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(res) {
+    if (res.status === 'duplicate') {
+      alert('This Employee Code has already submitted the test. You cannot appear again.');
+      btn.disabled    = false;
+      btn.textContent = 'Start Test';
+      return;
+    }
+    // new — proceed to test
+    startTest();
+  })
+  .catch(function(err) {
+    console.error('Check failed:', err);
+    alert('Could not connect to server. Please check your internet and try again.');
+    btn.disabled    = false;
+    btn.textContent = 'Start Test';
+  });
+});
+
+function startTest() {
   // Reset
   currentIndex = 0;
   userAnswers  = {};
@@ -284,7 +313,7 @@ document.getElementById('detailsForm').addEventListener('submit', function(e) {
   document.getElementById('detailsForm').style.display    = 'none';
   document.getElementById('testContainer').style.display  = 'block';
   showQuestion(0);
-});
+}
 
 // ── Display one question ──────────────────────────────────────
 function showQuestion(idx) {
