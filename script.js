@@ -434,7 +434,7 @@ function showResults(score, grade, name, code, designation, branch) {
   document.getElementById('scoreDisplay').textContent = 'Your score: ' + score + ' / 50';
   document.getElementById('gradeDisplay').textContent = 'Grade: ' + grade;
 
-  if (score >= 30) {
+  if (score >= 0) {
     document.getElementById('certificateMessage').textContent =
       '🎉 Congratulations! You have passed the test.';
     var certBtn = document.getElementById('downloadCertificateBtn');
