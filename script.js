@@ -92,17 +92,17 @@ var questions = [
     a: "Share Form"
   },
   {
-    q: "Which category of customer has to submit Form 15H?",
+    q: "Which category of customer has to submit Form 121?",
     opts: [
       "Normal Category (age below 60 years)",
       "Senior Citizen Category (age above 60 years)",
       "Super Senior Citizen Category (age above 80 years)",
-      "Both Senior and Super Senior Citizen categories"
+      "All of the above"
     ],
-    a: "Both Senior and Super Senior Citizen categories"
+    a: "All of the above"
   },
   {
-    q: "What is the annual interest threshold above which Normal Category customers (below 60) submit Form 15G?",
+    q: "What is the annual interest threshold above which customers has to submit Form 121?",
     opts: ["₹2,50,000", "₹4,00,000", "₹5,000", "₹5,00,000"],
     a: "₹4,00,000"
   },
@@ -129,7 +129,7 @@ var questions = [
   {
     q: "For a Sangeeth Nidhi Fixed Deposit with a period of 2 years, what is the yearly interest rate?",
     opts: ["9%", "12%", "12.5%", "11.50%"],
-    a: "11.50%"
+    a: "12%"
   },
   {
     q: "Which is a key reason why an investor's money is considered safe with SML and Vanchinad Finance?",
@@ -162,8 +162,8 @@ var questions = [
   },
   {
     q: "What is the yearly interest rate for Sangeeth Nidhi Recurring Deposit (RD), for a period of 2 years?",
-    opts: ["5%", "9%", "10%", "12.5%"],
-    a: "10%"
+    opts: ["5%", "11%", "10%", "12.5%"],
+    a: "11%"
   },
   {
     q: "Which of the following is NOT required for a Sangeeth Nidhi FD/RD?",
@@ -195,9 +195,9 @@ var questions = [
       "Form 15G; it is accepted.",
       "Form 15H; it is accepted.",
       "Form 15G; it is not accepted.",
-      "Form 15H; it is not accepted, and 10% TDS will be applied."
+      "Form 121; it is not accepted, and 10% TDS will be applied."
     ],
-    a: "Form 15H; it is not accepted, and 10% TDS will be applied."
+    a: "Form 121; it is not accepted, and 10% TDS will be applied."
   },
   {
     q: "What is the meaning of redeemable NCD?",
